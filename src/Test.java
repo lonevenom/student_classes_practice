@@ -43,14 +43,23 @@ public class Test {
                 String lastName = userInput.next();
                 System.out.println(UserQuestions.askAge);
                 int age = userInput.nextInt();
-                Permission.checkAge(age); // calling method to check age
+                try {
+                    Permission.checkAge(age); // calling method to check age
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    continue;
+                }
                 userInput.nextLine(); // because it goes from taking an int to a string in gender
                 System.out.println(UserQuestions.askGender);
                 String gender = userInput.next();
                 System.out.println(UserQuestions.askClassName);
                 String classType = userInput.next();
-
-                Permission.checkClassName(classType); // calling method to check className
+                try {
+                    Permission.checkClassName(classType); // calling method to check className
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    continue;
+                }
                 System.out.println("Congratulations! You are registered for " + classType + " class.\n");
 
                 if (classType.toUpperCase().equals("MATH")) {
